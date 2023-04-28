@@ -17,20 +17,13 @@ class Vet(models.Model):
     def get_absolute_url(self):
         return reverse('vet_detail', args=[str(self.id)])
     
-class Vaccination(models.Model):
-    name = models.CharField(max_length=50)
-    admin_by = models.ForeignKey(Vet, on_delete=models.CASCADE)
-    date = models.DateField('Vaccination Date')
 
-    def __str__(self):
-        return f'{self.name} ({self.id})'
 
 class Pet(models.Model):
     name = models.CharField(max_length=50)
     species = models.CharField(max_length=30)
     breed = models.CharField(max_length=50)
     birth_date = models.DateField('Birth Date')
-    vaccinations = models.ManyToManyField(Vaccination)
     vet_doctors = models.ManyToManyField(Vet)
     user= models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -39,6 +32,15 @@ class Pet(models.Model):
     
     def get_absolute_url(self):
         return reverse('pet_detail', args=[str(self.id)])
+
+class Vaccination(models.Model):
+    name = models.CharField(max_length=50)
+    date = models.DateField('Vaccination Date')
+    admin_by = models.ForeignKey(Vet, on_delete=models.CASCADE)
+    pet  = models.ManyToManyField(Pet)
+
+    def __str__(self):
+        return f'{self.name} ({self.id})'
     
 
 
