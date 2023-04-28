@@ -6,9 +6,6 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
-
-
-    
 class Vet(models.Model):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=50)
@@ -41,7 +38,7 @@ class Pet(models.Model):
         return f'{self.name} ({self.id})'
     
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'pet_id': self.id})
+        return reverse('detail', args=[str(self.id)])
     
 
 
