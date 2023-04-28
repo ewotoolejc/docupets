@@ -15,7 +15,7 @@ class Vet(models.Model):
         return f'{self.name} ({self.id})'
     
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'vet_id': self.id})
+        return reverse('vet_detail', args=[str(self.id)])
     
 class Vaccination(models.Model):
     name = models.CharField(max_length=50)
@@ -38,7 +38,7 @@ class Pet(models.Model):
         return f'{self.name} ({self.id})'
     
     def get_absolute_url(self):
-        return reverse('detail', args=[str(self.id)])
+        return reverse('pet_detail', args=[str(self.id)])
     
 
 
