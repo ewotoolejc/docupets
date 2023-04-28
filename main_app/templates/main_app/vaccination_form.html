@@ -6,7 +6,7 @@
 <h1>Edit {{object.name}}</h1>
 
 {% else %}
-<h1>Add A Pet</h1>
+<h1>Add A Vaccination</h1>
 {% endif %}
 <br>
 <form action="" method="POST">
@@ -18,8 +18,10 @@
    </form>
 </main>
 <script>
-    const dateEl = document.getElementById('id_birth_date');
-    M.Datepicker.init(dateEl, {
+const selectEl = document.getElementById('id_admin_by');
+  M.FormSelect.init(selectEl);
+  const dateEl = document.getElementById('id_date');
+  M.Datepicker.init(dateEl, {
     format: 'yyyy-mm-dd',
     defaultDate: new Date(),
     setDefaultDate: true,

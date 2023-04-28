@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<main id="vetlistmain">
+<br>
+<h1 id="vetindexh1">Your Vets</h1>
+    
+<form action="{% url 'vet_create' %}">
+    <button class="btn btn-outline-secondary" type="submit">Add a Vet</button>
+</form>
+{% if object_list %}
+{% for obj in object_list %}
+<div class="card">
+    <div class="card-body">
+    <h3 class="card-title">{{ obj.name }}</h3>
+    <p class="card-text">Office: {{ obj.location }} Specialty: {{ obj.specialty }}</p>
+    <a href="{{ obj.get_absolute_url }}" class="btn btn-primary">{{ obj.name }} Details</a>
+    </div>
+</div>
+<br>
+{% endfor %}
+{% else %}
+<p>There are no Vets.</p>
+{% endif %}    
+</main>
+{% endblock %}

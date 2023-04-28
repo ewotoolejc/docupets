@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<main id="detailmain">
+<br>
+  <h1 id="detailh1">{{ object.name }} Detail</h1>
+
+<ul class="list-group">
+    <li class="list-group-item">Office: {{ object.location }}</li>
+    <li class="list-group-item">Specialty: {{ object.specialty }}</li>
+</ul>
+<div class="card-action">
+  <a href="{% url 'vet_update' vet.id %}">Edit</a>
+  <a href="{% url 'vet_delete' vet.id %}">Delete</a>
+</div>
+</main>
+{% endblock %}
