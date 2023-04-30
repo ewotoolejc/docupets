@@ -8,6 +8,33 @@
     <li class="list-group-item">Office: {{ object.location }}</li>
     <li class="list-group-item">Specialty: {{ object.specialty }}</li>
 </ul>
+
+<h2>Patient Pets</h2>
+{% for pet in patients %}
+<a href="{{ pet.get_absolute_url }}" class="btn btn-primary">{{ pet.name }} Details</a>
+{% endfor %}
+<br>
+<h3>Other Pets</h3>
+
+<table class="striped" id="clean">
+  <thead>
+    <tr><th>Name:</th><th>Species:</th><th>Breed:</th><th></th></tr>
+  </thead>
+  <tbody>
+    {% for pet in availpets %}
+      <tr>
+          <td>{{pet.name}}</td>
+          <td>{{pet.species}}</td>
+          <td>{{pet.breed}}</td>
+          <td><form action="{% url 'assoc_vet' pet.id vet.id %}" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
 <div class="card-action">
   <a href="{% url 'vet_update' vet.id %}">Edit</a>
   <a href="{% url 'vet_delete' vet.id %}">Delete</a>

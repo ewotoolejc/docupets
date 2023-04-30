@@ -37,10 +37,25 @@ class Vaccination(models.Model):
     name = models.CharField(max_length=50)
     date = models.DateField('Vaccination Date')
     admin_by = models.ForeignKey(Vet, on_delete=models.CASCADE)
-    pet  = models.ManyToManyField(Pet)
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.name} ({self.id})'
     
+    def get_absolute_url(self):
+        return reverse('pet_addvaccination', args=[str(self.id)])
 
+class Grooming(models.Model):
+    location = models.CharField(max_length=50)
+    date = models.DateField('Grooming Date')
+    duration = models.IntegerField()
+    nail_trim = models.BooleanField(blank=False)
+    hair_trim = models.BooleanField(blank=False)
+    teeth_brush = models.BooleanField(blank=False)
+    bath = models.BooleanField(blank=False)
+    shampoo = models.BooleanField(blank=False)
+    conditioner = models.BooleanField(blank=False)
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.location} {self.date} ({self.id})'
