@@ -5,3 +5,8 @@ class VaccinationForm(ModelForm):
   class Meta:
     model = Vaccination
     fields = ['name', 'date', 'admin_by']
+
+class GroomingForm(ModelForm):
+  class Meta:
+    model = Grooming
+    fields = ['location', 'date', 'duration', 'nail_trim', 'hair_trim', 'teeth_brush', 'bath', 'shampoo', 'conditioner']

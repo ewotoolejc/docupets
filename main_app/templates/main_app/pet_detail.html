@@ -9,12 +9,55 @@
     <li class="list-group-item">Breed: {{ object.breed }}</li>
     <li class="list-group-item">Birthday: {{ object.birth_date }}</li>
 </ul>
+<h2>{{ object.name }} Vets</h2>
+<table class="striped" id="clean">
+    <thead>
+      <tr><th>Name</th><th>Office:</th><th>Specialty</th><th></th></tr>
+    </thead>
+    <tbody>
+        {% for vet in object.vet_doctors.all %}
+        <tr>
+            <td>{{vet.name}}</td>
+            <td>{{vet.location}}</td>
+            <td>{{vet.specialty}}</td>
+            <td><form action="{% url 'unassoc_vet' pet.id vet.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn">Remove</button>
+              </form></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+
+<h3>Available Vets to add for {{ object.name }}</h3>
+<table class="striped" id="clean">
+    <thead>
+      <tr><th>Name</th><th>Office:</th><th>Specialty</th><th></th></tr>
+    </thead>
+    <tbody>
+        {% for vet in availvets %}
+        <tr>
+            <td>{{vet.name}}</td>
+            <td>{{vet.location}}</td>
+            <td>{{vet.specialty}}</td>
+            <td><form action="{% url 'assoc_vet' pet.id vet.id %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn">Add</button>
+              </form></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
 <table class="striped" id="clean">
   <thead>
     <tr><th>Date:</th><th>Vaccine:</th><th>Administered By:</th></tr>
   </thead>
   <tbody>
-    {% for vaccine in object.vaccinations_set.all %}
+    {% for vaccine in object.vaccination_set.all %}
       <tr>
         <td>{{vaccine.date}}</td>
         <td>{{vaccine.name}}</td>
@@ -23,6 +66,13 @@
     {% endfor %}
   </tbody>
 </table>
+
+<form action="{% url 'add_grooming' object.id %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-success" value="Add Grooming">
+</form>
+
 <div class="card-action">
   <a href="{% url 'pet_update' pet.id %}"> Edit</a>
   <a href="{% url 'pet_delete' pet.id %}"> Delete</a>
@@ -30,4 +80,15 @@
 </div>
 
 </main>
+<script>
+    const selectEl = document.getElementById('id_nail_trim');
+      M.FormCheckbox.init(selectEl);
+      const dateEl = document.getElementById('id_date');
+      M.Datepicker.init(dateEl, {
+        format: 'yyyy-mm-dd',
+        defaultDate: new Date(),
+        setDefaultDate: true,
+        autoClose: true
+      });
+    </script>
 {% endblock %}

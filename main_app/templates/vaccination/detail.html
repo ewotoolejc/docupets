@@ -1,21 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <main id="vaccineDetail">
-{% if object %}
-<br>
-<h1>Edit {{object.name}}</h1>
-
-{% else %}
 <h1>Add A Vaccination</h1>
-{% endif %}
+
+
 <br>
 <form action="{% url 'pet_addvaccination' pet.id %}" method="POST">
     {% csrf_token %}
     <!-- Render the inputs -->
     {{ vaccination_form.as_p }}
     <input type="submit" class="btn" value="Add Vaccination">
-   </form>
+</form>
+
 </main>
 <script>
 const selectEl = document.getElementById('id_admin_by');
