@@ -2,8 +2,12 @@
 {% block content %}
 <main id="detailmain">
 <br>
-  <h1 id="detailh1">{{ object.name }} Detail</h1>
+<h1 id="detailh1">{{ object.name }} Detail</h1>
 
+<div class="right card-action">
+ <a href="{% url 'vet_update' vet.id %}" class="btn-small z-depth-4" id="editbtn">Edit Vet</a>
+ <a href="{% url 'vet_delete' vet.id %}" class="btn-small z-depth-4" id="delbtn">Delete Vet</a>
+</div>
 <ul class="list-group">
     <li class="list-group-item">Office: {{ object.location }}</li>
     <li class="list-group-item">Specialty: {{ object.specialty }}</li>
@@ -11,12 +15,12 @@
 
 <h2>Patient Pets</h2>
 {% for pet in patients %}
-<a href="{{ pet.get_absolute_url }}" class="btn btn-primary">{{ pet.name }} Details</a>
+<a href="{{ pet.get_absolute_url }}" class="btn-small" id="Detailbtn">{{ pet.name }} Details</a>
 {% endfor %}
 <br>
 <h3>Other Pets</h3>
 
-<table class="striped" id="clean">
+<table class="striped">
   <thead>
     <tr><th>Name:</th><th>Species:</th><th>Breed:</th><th></th></tr>
   </thead>
@@ -28,16 +32,11 @@
           <td>{{pet.breed}}</td>
           <td><form action="{% url 'assoc_vet' pet.id vet.id %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn">Add</button>
+              <button type="submit" class="btn-small" id="addbtn">Add</button>
             </form></td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
-
-<div class="card-action">
-  <a href="{% url 'vet_update' vet.id %}">Edit</a>
-  <a href="{% url 'vet_delete' vet.id %}">Delete</a>
-</div>
 </main>
 {% endblock %}
