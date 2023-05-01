@@ -67,22 +67,25 @@
   </tbody>
 </table>
 
+<div class="card-action">
+  <a href="{% url 'pet_update' pet.id %}"> Edit Pet</a>
+  <a href="{% url 'pet_delete' pet.id %}"> Delete Pet</a>
+  <a href="{% url 'pet_vaccinationdetail' pet.id %}"> Add Vaccination</a>
+</div>
+
+<h3>Grooming</h3>
 <form action="{% url 'add_grooming' object.id %}" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" class="btn btn-success" value="Add Grooming">
 </form>
-
-<div class="card-action">
-  <a href="{% url 'pet_update' pet.id %}"> Edit</a>
-  <a href="{% url 'pet_delete' pet.id %}"> Delete</a>
-  <a href="{% url 'pet_vaccinationdetail' pet.id %}"> Add Vaccination</a>
+<div>
+  <a href="{% url 'grooming_delete' pet.id %}"> Delete Grooming</a>
 </div>
-
 </main>
 <script>
-    const selectEl = document.getElementById('id_nail_trim');
-      M.FormCheckbox.init(selectEl);
+    // const selectEl = document.getElementById('id_nail_trim');
+    //   M.FormCheckbox.init(selectEl);
       const dateEl = document.getElementById('id_date');
       M.Datepicker.init(dateEl, {
         format: 'yyyy-mm-dd',

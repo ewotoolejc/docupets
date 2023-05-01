@@ -14,6 +14,7 @@ urlpatterns = [
     path('pets/<int:pet_id>/assoc_vet/<int:vet_id>/', views.assoc_vet, name='assoc_vet'),
     path('pets/<int:pet_id>/unassoc_vet/<int:vet_id>/', views.unassoc_vet, name='unassoc_vet'),
     path('pets/<int:pet_id>/add_grooming/', views.add_grooming, name='add_grooming'),
+    path('pets/<int:pet_id>/delete/', views.GroomingDeleteView.as_view, name='grooming_delete'),
     path('vets/', views.VetList.as_view(), name='vet_index'),
     path('vets/<int:pk>/', views.VetDetailView.as_view(), name='vet_detail'),
     path('vets/create/', views.VetCreateView.as_view(), name='vet_create'),

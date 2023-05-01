@@ -72,6 +72,9 @@ def add_grooming(request, pet_id):
     new_grooming.save()
     return redirect('pet_detail', pk=pet_id)
 
+class GroomingDeleteView(DeleteView):
+  model = Grooming
+  success_url = '/pets'
 
 class PetCreateView(CreateView):
   model = Pet
@@ -88,15 +91,6 @@ class PetUpdateView(UpdateView):
 class PetDeleteView(DeleteView):
   model = Pet
   success_url = '/pets'
-
-#class PetAddVaccinationView(CreateView):
-# model = Vaccination
-#  fields = '__all__'
-#  success_url = '/pets'
-
-  # def form_valid(self, form):
-  #  form.instance.user = self.request.user
-  #  return super().form_valid(form)
 
 class VetList(ListView):
   model = Vet
