@@ -1,15 +1,48 @@
-
-  body {
+body {
     display: flex;
+    /* padding: 3vmin; */
     min-height: 100vh;
     flex-direction: column;
+    font-size: 3.2vmin;
+    font-family: 'Ysabeau', sans-serif;
   }
-  
-  main {
+
+#MainLogo {
+    font-family: 'Darumadrop One', cursive;
+    font-size: 6vmin;
+}
+
+#username {
+  margin-left: 21vmin;
+  margin-top: -2.5vmin;
+}
+
+.right a {
+  font-size: 3vmin;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Righteous', cursive;
+}
+
+.card {
+  padding: 1vmin;
+}
+
+#detailmain span, label {
+  font-size: 2.5vmin;
+}
+
+#detailmain .right > a {
+  margin: 2vmin;
+}
+
+main {
     flex: 1 0 auto;
-  }
+    padding: 2vmin;
+}
   
-  footer.page-footer {
+footer.page-footer {
     padding-top: 0;
     text-align: right;
-  }
+}
