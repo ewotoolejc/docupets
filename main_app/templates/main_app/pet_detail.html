@@ -3,7 +3,11 @@
 {% load material_form %}
 <main id="detailmain">
 <br>
-  <h1 id="detailh1">{{ object.name }} Detail</h1>
+<h1 id="detailh1">{{ object.name }} Detail</h1>
+<div class="right card-action">
+  <a href="{% url 'pet_update' pet.id %}">Edit Pet</a>
+  <a href="{% url 'pet_delete' pet.id %}">Delete Pet</a>
+</div>
 <ul class="list-group">
     <li class="list-group-item">Species: {{ object.species }}</li>
     <li class="list-group-item">Breed: {{ object.breed }}</li>
@@ -68,13 +72,20 @@
 <h3>Grooming:</h3>
 <table class="striped">
   <thead>
-    <tr><th>Date</th><th>Location</th></tr>
+    <tr><th>Date</th><th>Location</th><th>Duration (MM)</th><th>Nail Trim</th><th>Hair Trim</th><th>Teeth Brush</th><th>Bath</th><th>Shampoo</th><th>Conditioner</th><th></th></tr>
   </thead>
   <tbody>
     {% for grooming in pet.grooming_set.all %}
       <tr>
         <td>{{grooming.date}}</td>
         <td>{{grooming.location}}</td>
+        <td>{{grooming.duration}}</td>
+        <td>{{grooming.nail_trim}}</td>
+        <td>{{grooming.hair_trim}}</td>
+        <td>{{grooming.teeth_brush}}</td>
+        <td>{{grooming.bath}}</td>
+        <td>{{grooming.shampoo}}</td>
+        <td>{{grooming.conditioner}}</td>
         <td><a href="{% url 'grooming_delete_view' pet.id grooming.id %}" > Delete Grooming</a></td>
       </tr>
     {% endfor %}
@@ -85,12 +96,6 @@
     {% form form=form %}{% endform %}
     <input type="submit" class="btn btn-success" value="Add Grooming"> 
 </form>
-<div>
-</div>
-<div class="card-action">
-  <a href="{% url 'pet_update' pet.id %}"> Edit</a>
-  <a href="{% url 'pet_delete' pet.id %}"> Delete</a>
-</div>
 </main>
 <script>
     // const selectEl = document.getElementById('id_nail_trim');

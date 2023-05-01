@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Docupets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Righteous&family=Ysabeau&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -18,10 +21,10 @@
             <div class="nav-wrapper">
                 <ul class = "left">
                   {% if user.is_authenticated %}
-                    <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Docupets</a></li>
-                    <li><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for  {{ user.username }}</p></li>
+                    <li><a href="{% url 'home' %}" class="left brand-logo" id="MainLogo">&nbsp;&nbsp;Docupets</a></li>
+                    <li id="username"><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for  {{ user.username }}</p></li>
                   {% else %}
-                    <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Docupets</a></li>
+                    <li><a href="{% url 'home' %}" class="left brand-logo" id="MainLogo">&nbsp;&nbsp;Docupets</a></li>
                   {% endif %}
                 </ul>
                 <ul class="right">
