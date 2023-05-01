@@ -54,7 +54,9 @@ class PetDetailView(FormMixin, DetailView):
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     context['availvets'] = Vet.objects.exclude(pet=self.object)
+    context['groomings'] = Grooming.objects.all()
     return context
+
 
 def assoc_vet(request, pet_id, vet_id):
   Pet.objects.get(id=pet_id).vet_doctors.add(vet_id)
