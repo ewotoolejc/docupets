@@ -10,13 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <ul>
+                <ul class = "left">
+                  {% if user.is_authenticated %}
                     <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Docupets</a></li>
+                    <li><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for  {{ user.username }}</p></li>
+                  {% else %}
+                    <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Docupets</a></li>
+                  {% endif %}
                 </ul>
                 <ul class="right">
                   {% if user.is_authenticated %}

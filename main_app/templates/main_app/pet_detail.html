@@ -75,7 +75,7 @@
       <tr>
         <td>{{grooming.date}}</td>
         <td>{{grooming.location}}</td>
-        <td><a href="{% url 'grooming_delete' grooming.id %}"> Delete Grooming</a></td>
+        <td><a href="{% url 'grooming_delete_view' pet.id grooming.id %}" > Delete Grooming</a></td>
       </tr>
     {% endfor %}
   </tbody>
