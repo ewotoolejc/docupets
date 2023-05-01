@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete Grooming for <span class="teal-text">{{ pet.name }}</span></h1>
+
+  <h4>Are you sure you want to delete the grooming at <span class="teal-text">{{ grooming.location }}</span>?</h4>
+
+ <form action="{% url 'grooming_delete' pet.id grooming.id%}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes - Delete!" class="btn">
+    <a href="{% url 'pet_detail' pet.id %}">Cancel</a>
+  </form>
+
+{% endblock %}

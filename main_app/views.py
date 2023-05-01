@@ -54,7 +54,7 @@ class PetDetailView(FormMixin, DetailView):
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
     context['availvets'] = Vet.objects.exclude(pet=self.object)
-    context['groomings'] = Grooming.objects.all()
+#    context['groomings'] = Grooming.objects.all()
     return context
 
 
@@ -74,9 +74,18 @@ def add_grooming(request, pet_id):
     new_grooming.save()
     return redirect('pet_detail', pk=pet_id)
 
-class GroomingDeleteView(DeleteView):
-  model = Grooming
-  success_url = '/pets'
+def GroomingDeleteView(request,pet_id,grooming_id):
+  pet = Pet.objects.get(id=pet_id)
+  grooming = Grooming.objects.get(id=grooming_id)
+  return render(request, 'grooming/grooming_confirm_delete.html', { 
+    'pet': pet,
+    'grooming': grooming
+  })
+
+def GroomingDelete(request,pet_id,grooming_id):
+ Grooming.objects.filter(id=grooming_id).delete()
+ return redirect('pet_detail', pk=pet_id)
+
 
 class PetCreateView(CreateView):
   model = Pet
