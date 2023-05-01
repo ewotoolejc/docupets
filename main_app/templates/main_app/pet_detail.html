@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load material_form %}
 <main id="detailmain">
 <br>
   <h1 id="detailh1">{{ object.name }} Detail</h1>
-
 <ul class="list-group">
     <li class="list-group-item">Species: {{ object.species }}</li>
     <li class="list-group-item">Breed: {{ object.breed }}</li>
@@ -28,9 +28,6 @@
         {% endfor %}
       </tbody>
     </table>
-
-
-
 <h3>Available Vets to add for {{ object.name }}</h3>
 <table class="striped" id="clean">
     <thead>
@@ -50,8 +47,8 @@
         {% endfor %}
       </tbody>
     </table>
-
-
+<br>
+<h3>Vaccine:</h3>
 <table class="striped" id="clean">
   <thead>
     <tr><th>Date:</th><th>Vaccine:</th><th>Administered By:</th></tr>
@@ -66,27 +63,39 @@
     {% endfor %}
   </tbody>
 </table>
-
-<div class="card-action">
-  <a href="{% url 'pet_update' pet.id %}"> Edit Pet</a>
-  <a href="{% url 'pet_delete' pet.id %}"> Delete Pet</a>
-  <a href="{% url 'pet_vaccinationdetail' pet.id %}"> Add Vaccination</a>
-</div>
-
-<h3>Grooming</h3>
+<a href="{% url 'pet_vaccinationdetail' pet.id %}"> Add Vaccination</a>
+<br>
+<h3>Grooming:</h3>
+<table class="striped">
+  <thead>
+    <tr><th>Date</th><th>Location</th></tr>
+  </thead>
+  <tbody>
+    {% for grooming in pet.grooming_set.all %}
+      <tr>
+        <td>{{grooming.date}}</td>
+        <td>{{grooming.location}}</td>
+        <td><a href="{% url 'grooming_delete' grooming.id %}"> Delete Grooming</a></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
 <form action="{% url 'add_grooming' object.id %}" method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn btn-success" value="Add Grooming">
+    {% form form=form %}{% endform %}
+    <input type="submit" class="btn btn-success" value="Add Grooming"> 
 </form>
 <div>
-  <a href="{% url 'grooming_delete' pet.id %}"> Delete Grooming</a>
+</div>
+<div class="card-action">
+  <a href="{% url 'pet_update' pet.id %}"> Edit</a>
+  <a href="{% url 'pet_delete' pet.id %}"> Delete</a>
 </div>
 </main>
 <script>
     // const selectEl = document.getElementById('id_nail_trim');
-    //   M.FormCheckbox.init(selectEl);
-      const dateEl = document.getElementById('id_date');
+    //   M.FormSelect.init(selectEl);
+    const dateEl = document.getElementById('id_date');
       M.Datepicker.init(dateEl, {
         format: 'yyyy-mm-dd',
         defaultDate: new Date(),

@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='vaccination',
             name='pet',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='main_app.pet'),
+            field=models.ForeignKey(default=2, on_delete=django.db.models.deletion.CASCADE, to='main_app.pet'),
             preserve_default=False,
         ),
     ]
