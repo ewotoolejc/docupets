@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5 {
   height: 50vh;
 }
 
-#delete-pet-main, #delete-vet-main {
+#delete-pet-main, #delete-vet-main, #del-groom-main, #loginmain, #signupmain {
   height: 50vh;
 }
 
