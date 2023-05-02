@@ -55,7 +55,7 @@
 <h3>Vaccine:</h3>
 <table class="striped" id="clean">
   <thead>
-    <tr><th>Date:</th><th>Vaccine:</th><th>Administered By:</th></tr>
+    <tr><th>Date:</th><th>Vaccine:</th><th>Administered By:</th><th>Visit Date</th></tr>
   </thead>
   <tbody>
     {% for vaccine in object.vaccination_set.all %}
@@ -63,6 +63,7 @@
         <td>{{vaccine.date}}</td>
         <td>{{vaccine.name}}</td>
         <td>{{vaccine.admin_by}}</td>
+        <td>{% if vaccine.visit == none %} {% else %}{{vaccine.visit}}{% endif %}</td>
       </tr>
     {% endfor %}
   </tbody>

@@ -4,7 +4,11 @@ from .models import *
 class VaccinationForm(ModelForm):
   class Meta:
     model = Vaccination
-    fields = ['name', 'date', 'admin_by']
+    fields = ['name', 'date', 'admin_by', 'visit' ]
+  
+  def __init__(self, *args, **kwargs):
+        super(VaccinationForm, self).__init__(*args, **kwargs)
+        self.fields['date'].required = False
 
 class GroomingForm(ModelForm):
   class Meta:
