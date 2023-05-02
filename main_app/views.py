@@ -59,6 +59,7 @@ class PetDetailView(LoginRequiredMixin, FormMixin, DetailView):
     context = super().get_context_data(**kwargs)
     context['availvets'] = Vet.objects.exclude(pet=self.object)
 #    context['groomings'] = Grooming.objects.all()
+    context['today'] = date.today()
     return context
 
 
