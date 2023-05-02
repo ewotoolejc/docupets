@@ -34,11 +34,15 @@ h1, h2, h3, h4, h5 {
   height: 50vh;
 }
 
+#delete-pet-main, #delete-vet-main {
+  height: 50vh;
+}
+
 #Addbtn {
   background-color: #EF8354;
 }
 
-#Detailbtn {
+#Detailbtn, #submit {
   background-color: #EF8354;
 }
 
@@ -58,6 +62,12 @@ h1, h2, h3, h4, h5 {
 #editbtn, #delbtn, #addbtn, #removebtn {
   font-size: 2.5vmin;
   background-color: #EF8354;
+  border-radius: 1vmin;
+}
+
+#cancelbtn {
+  font-size: 2.5vmin;
+  background-color: #BFC0c0;
   border-radius: 1vmin;
 }
 

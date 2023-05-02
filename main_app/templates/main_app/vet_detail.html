@@ -15,7 +15,9 @@
 
 <h2>Patient Pets</h2>
 {% for pet in patients %}
+{% if pet.user_id == user.id %}
 <a href="{{ pet.get_absolute_url }}" class="btn-small" id="Detailbtn">{{ pet.name }} Details</a>
+{% endif %}
 {% endfor %}
 <br>
 <h3>Other Pets</h3>
@@ -26,6 +28,7 @@
   </thead>
   <tbody>
     {% for pet in availpets %}
+    {% if pet.user_id == user.id %}
       <tr>
           <td>{{pet.name}}</td>
           <td>{{pet.species}}</td>
@@ -35,6 +38,7 @@
               <button type="submit" class="btn-small" id="addbtn">Add</button>
             </form></td>
         </tr>
+      {% endif %}
       {% endfor %}
     </tbody>
   </table>
