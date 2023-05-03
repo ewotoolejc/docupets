@@ -4,3 +4,4 @@ from .models import *
 admin.site.register(Pet)
 admin.site.register(Vet)
 admin.site.register(Vaccination)
+admin.site.register(Visit)
