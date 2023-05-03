@@ -13,6 +13,17 @@
    {% csrf_token %}
        <table id="edittable">
            {{ form.as_table }}
+          <tr>
+            <th><label for="id_pet">Pet:</label></th>
+            <td>     
+              <select name="pet" required id="id_pet">           
+              <option value="" selected>---------</option>
+              {% for pet in mypets%}                
+                <option value="{{ pet.id }}">{{pet.name}}</option>
+              {% endfor%}    
+              </select>
+            </td>
+          </tr>
        </table>
        <button type="submit" value="Submit!" class="btn waves-effect waves-light" id="submit">Submit <i class="material-icons right">send</i></button>
    </form>

@@ -154,14 +154,17 @@ class VisitDetailView(LoginRequiredMixin, DetailView):
 
 class VisitCreateView(LoginRequiredMixin, CreateView):
   model = Visit
-  fields = ['name', 'date', 'pet', 'vet', 'notes']
-
-  # def __init__(self, *args, **kwargs):
-  #  super(VisitCreateView, self).__init__(*args, **kwargs)
-  #  self.fields['pet'].queryset = Pet.objects.filter(name='Obi')
+  fields =  ['name','date','vet', 'notes']
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    user = self.request.user
+    context["mypets"] = user.pet_set.all()
+    return context
 
   def form_valid(self, form):
    form.instance.user = self.request.user
+   pet_id = self.request.POST['pet']
+   form.instance.pet = Pet.objects.get(id=pet_id)
    return super().form_valid(form)
 
 class VisitUpdateView(LoginRequiredMixin, UpdateView):
