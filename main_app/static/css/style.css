@@ -1,4 +1,95 @@
+@media (min-width: 280px) and (max-width:1000px) {
 body {
+    display: flex;
+    /* padding: 3vmin; */
+    min-height: 100vh;
+    flex-direction: column;
+    font-size: 3.2vmin;
+    font-family: 'Ysabeau', sans-serif;
+    background-color: pink;
+}
+
+.nav-wrapper {
+background-color: #2D3142;
+}
+
+#MainLogo {
+    font-family: 'Darumadrop One', cursive;
+    font-size: 6vmin;
+}
+
+#username {
+  margin-left: 21vmin;
+  margin-top: -2.5vmin;
+}
+
+.right a {
+  font-size: 3vmin;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Righteous', cursive;
+  color: #4f5D75;
+}
+
+#homemain {
+  height: 50vh;
+}
+
+#delete-pet-main, #delete-vet-main, #del-groom-main, #loginmain, #signupmain {
+  height: 50vh;
+}
+
+#Addbtn {
+  background-color: #EF8354;
+}
+
+#Detailbtn, #submit {
+  background-color: #EF8354;
+}
+
+.card {
+  padding: 1vmin;
+  width: 50%;
+}
+
+#detailmain span, label {
+  font-size: 2.5vmin;
+}
+
+#detailmain .right > a {
+  margin: 2vmin;
+}
+
+#editbtn, #delbtn, #addbtn, #removebtn {
+  font-size: 2.5vmin;
+  background-color: #EF8354;
+  border-radius: 1vmin;
+}
+
+#cancelbtn {
+  font-size: 2.5vmin;
+  background-color: #BFC0c0;
+  border-radius: 1vmin;
+}
+
+#createupdatevisitpg label {
+  font-size: 3.5vmin;
+}
+
+main {
+    flex: 1 0 auto;
+    padding: 2vmin;
+}
+  
+footer.page-footer {
+   background-color: #2D3142;
+    padding-top: 0;
+    text-align: right;
+}
+}
+@media (min-width: 1001px) {
+  body {
     display: flex;
     /* padding: 3vmin; */
     min-height: 100vh;
@@ -84,4 +175,5 @@ footer.page-footer {
    background-color: #2D3142;
     padding-top: 0;
     text-align: right;
+}
 }
