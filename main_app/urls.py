@@ -23,5 +23,10 @@ urlpatterns = [
     path('vets/create/', views.VetCreateView.as_view(), name='vet_create'),
     path('vets/<int:pk>/update/', views.VetUpdateView.as_view(), name='vet_update'),
     path('vets/<int:pk>/delete/', views.VetDeleteView.as_view(), name='vet_delete'),
+    path('visits/', views.VisitList.as_view(), name='visit_index'),
+    path('visits/<int:pk>/', views.VisitDetailView.as_view(), name='visit_detail'),
+    path('visits/create/', views.VisitCreateView.as_view(), name='visit_create'),
+    path('visits/<int:pk>/update/', views.VisitUpdateView.as_view(), name='visit_update'),
+    path('visits/<int:pk>/delete/', views.VisitDeleteView.as_view(), name='visit_delete')
 ]
 

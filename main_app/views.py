@@ -136,3 +136,39 @@ class VetUpdateView(LoginRequiredMixin, UpdateView):
 class VetDeleteView(LoginRequiredMixin, DeleteView):
   model = Vet
   success_url = '/vets'
+
+class VisitList(LoginRequiredMixin, ListView):
+  model = Visit
+
+  def get_queryset(self):
+   return self.model.objects.filter(user=self.request.user)
+
+class VisitDetailView(LoginRequiredMixin, DetailView):
+  model = Visit
+
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['vaccines'] = Vaccination.objects.filter(visit=self.object)
+    return context
+
+class VisitCreateView(LoginRequiredMixin, CreateView):
+  model = Visit
+  fields = ['name', 'date', 'pet', 'vet', 'notes']
+
+  # def __init__(self, *args, **kwargs):
+  #  super(VisitCreateView, self).__init__(*args, **kwargs)
+  #  self.fields['pet'].queryset = Pet.objects.filter(name='Obi')
+
+  def form_valid(self, form):
+   form.instance.user = self.request.user
+   return super().form_valid(form)
+
+class VisitUpdateView(LoginRequiredMixin, UpdateView):
+  model = Visit
+  fields = ['name', 'date', 'pet', 'vet', 'notes']
+
+class VisitDeleteView(LoginRequiredMixin, DeleteView):
+  model = Visit
+  success_url = '/visits'
+

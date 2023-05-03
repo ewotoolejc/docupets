@@ -30,6 +30,7 @@
                 <ul class="right">
                   {% if user.is_authenticated %}
                     <li><a href="{% url 'pet_index' %}">Your Pets</a></li>
+                    <li><a href="{% url 'visit_index' %}">Your Visits</a></li>
                     <li><a href="{% url 'vet_index' %}">Vets</a></li>
                     <li><a href="{% url 'logout' %}">Log Out</a></li>
                   {% else %}

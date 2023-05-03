@@ -12,13 +12,11 @@ class Vet(models.Model):
     specialty = models.CharField(max_length=50)
 
     def __str__(self):
-        return f'{self.name} ({self.id})'
+        return f'{self.name}'
     
     def get_absolute_url(self):
         return reverse('vet_detail', args=[str(self.id)])
     
-
-
 class Pet(models.Model):
     name = models.CharField(max_length=50)
     species = models.CharField(max_length=30)
@@ -28,22 +26,11 @@ class Pet(models.Model):
     user= models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.name} ({self.id})'
+        return f'{self.name}'
     
     def get_absolute_url(self):
         return reverse('pet_detail', args=[str(self.id)])
 
-class Vaccination(models.Model):
-    name = models.CharField(max_length=50)
-    date = models.DateField('Vaccination Date')
-    admin_by = models.ForeignKey(Vet, on_delete=models.CASCADE)
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.name} ({self.id})'
-    
-    def get_absolute_url(self):
-        return reverse('pet_addvaccination', args=[str(self.id)])
 
 class Grooming(models.Model):
     location = models.CharField(max_length=50)
@@ -59,3 +46,30 @@ class Grooming(models.Model):
 
     def __str__(self):
         return f'{self.location} {self.date} ({self.id})'
+
+class Visit(models.Model):
+    name = models.CharField(max_length=50)
+    date = models.DateField('Visit Date')
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+    vet = models.ForeignKey(Vet, on_delete=models.CASCADE)
+    notes = models.CharField()
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name} ({self.date})'
+    
+    def get_absolute_url(self):
+        return reverse('visit_detail', args=[str(self.id)])
+
+class Vaccination(models.Model):
+    name = models.CharField(max_length=50)
+    date = models.DateField('Vaccination Date', null=True)
+    admin_by = models.ForeignKey(Vet, on_delete=models.CASCADE)
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+    visit = models.ForeignKey(Visit, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.name}'
+    
+    def get_absolute_url(self):
+        return reverse('pet_addvaccination', args=[str(self.id)])
