@@ -6,7 +6,6 @@ body {
     flex-direction: column;
     font-size: 3vmin;
     font-family: 'Ysabeau', sans-serif;
-    /* background-color: red; */
 }
 
 .overlay{
@@ -49,7 +48,7 @@ body {
 }
 
 #hamburger-menu {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 20px;
   width: 50px;
@@ -119,8 +118,6 @@ body {
   text-decoration: none;
 }
 
-
-/* @media screen and (max-width: 750px) { */
 #main-menu {
   display: none;
   
@@ -131,18 +128,18 @@ body {
 }
 
 
-.nav-wrapper {
+.nav-wrapper ul {
   background-color: #2D3142;
+  display: flex;
+  flex-direction: column;
 }
 
 
 #username {
   font-size: 1rem;
+  align-self: center;
 }
 
-/* .right a {
-  font-size: 3vmin;
-} */
 
 h1, h2, h3, h4, h5 {
   font-family: 'Righteous', cursive;
@@ -151,7 +148,15 @@ h1, h2, h3, h4, h5 {
 
 #homemain {
   height: 50vh;
-  background-color: white;
+  background-image: url('https://www.shutterstock.com/image-vector/cat-dog-260nw-121357396.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#homemain h2 {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #delete-pet-main, #delete-vet-main, #del-groom-main, #loginmain, #signupmain {
@@ -174,6 +179,8 @@ h1, h2, h3, h4, h5 {
 #detailmain span, label {
   font-size: 2.5vmin;
 }
+
+
 
 #detailmain .right > a {
   margin: 2vmin;
@@ -205,8 +212,7 @@ footer.page-footer {
     padding-top: 0;
     text-align: right;
 }
-/* } */
-
+}
 @media (min-width: 1001px) {
   body {
     display: flex;
@@ -215,12 +221,35 @@ footer.page-footer {
     flex-direction: column;
     font-size: 3.2vmin;
     font-family: 'Ysabeau', sans-serif;
-    background-color: pink;
+
+  }
+
+header nav {
+  background-color: #2D3142;
 }
 
-.nav-wrapper {
-background-color: #2D3142;
+.navBar {
+  display: inline-block;
+  /* flex-direction: row; */
+  /* justify-content: space-evenly; */
 }
+
+#hamburger-menu {
+  visibility: hidden;
+} 
+
+#hamburger-menu #sidebar-menu {
+  visibility: hidden;
+}
+
+#left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* #mainLogoDiv {
+  align-self: flex-start;
+} */
 
 #MainLogo {
     font-family: 'Darumadrop One', cursive;
@@ -232,7 +261,12 @@ background-color: #2D3142;
   margin-top: 0vmin;
 }
 
-.right a {
+#right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#right a {
   font-size: 3vmin;
 }
 
@@ -243,6 +277,15 @@ h1, h2, h3, h4, h5 {
 
 #homemain {
   height: 50vh;
+  background-image: url('https://www.shutterstock.com/image-vector/cat-dog-260nw-121357396.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#homemain h2 {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 #delete-pet-main, #delete-vet-main, #del-groom-main, #loginmain, #signupmain {
@@ -296,12 +339,10 @@ footer.page-footer {
     padding-top: 0;
     text-align: right;
 }
-}
 
-.navBar {
-  display: flex;
-}
 
 #petindexh1, h1, h2, h3, h4 {
   color: #4f5D75;
+}
+
 }
