@@ -9,43 +9,35 @@ DocuPets was developed by:
 - [Evan O’Toole](https://github.com/ewotoolejc)
 - [Gizeli Pereira](https://github.com/gizeli-pereira)
 
-#### YOU CAN EXPLORE THE PAGE HERE: [DocuPets]()
+#### YOU CAN EXPLORE THE PAGE HERE: [DocuPets](https://docupets.herokuapp.com/)
 
 ### Home Page - User logged out
 
-![home page-user logged out]()
-
-### Home Page - User logged in
-
-![home page - user logged in]()
+![home page](/main_app/static/images/home.png)
 
 ### Your Pets  page- User logged in
 
-![your pets - user logged in]()
-
-### Add a Pet page
-
-![add a pet page]()
+![your pets - user logged in](/main_app/static/images/yourpets.png)
 
 ### Pet Details page
 
-![pet details page]()
+![pet details page](/main_app/static/images/petdetail.png)
 
-### Vets page
+### Your Pets Mobile  page - User logged in
 
-![vets page]()
+![your pets mobile - user logged in](/main_app/static/images/petdetail_mobile.png)
 
-### Add a Vet page
+### Add a Vet Visit page
 
-![add a vet]()
+![add a vet visit](/main_app/static/images/add.png)
 
-### Grooming form
+### Delete form
 
-![grooming form]()
+![delete form](/main_app/static/images/delete.png)
 
-### Vaccination form
+### Burger nav
 
-![vaccination form]()
+![burger nav](/main_app/static/images/burger.png)
 
 
 
@@ -65,7 +57,7 @@ DocuPets was developed by:
 
 
 ### NEXT STEPS: 
-* Add Responsive Design for Mobile devices;
+* Edit Grooming details on pet detail page.
 
 
 #### You can see the Trello planing here: [DocuPets](https://trello.com/b/tKhjlXPU/docupets-board)

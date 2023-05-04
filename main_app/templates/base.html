@@ -18,18 +18,21 @@
 <body>
     <header class="navbar-fixed">
       <nav id="main-menu" class="navBar">
+        <div id="divleft">
         <ul id="left">
           <div id="mainLogoDiv">
           {% if user.is_authenticated %}
             <li class="titleLogo"><a href="{% url 'home' %}" class="left brand-logo" id="MainLogo">&nbsp;&nbsp;Docupets</a></li>
             <div>
-            <li id="username"><p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for  {{ user.username }}</p></li>
+            <li id="username"><p>&nbsp; &nbsp;&nbsp;for  {{ user.username }}</p></li>
             </div>
             {% else %}
             <li class="titleLogo"><a href="{% url 'home' %}" class="left brand-logo" id="MainLogo">&nbsp;&nbsp;Docupets</a></li>
           {% endif %}
           </div>
         </ul>
+        </div>
+        <div id="divright">
         <ul id="right">
           {% if user.is_authenticated %}
             <li class="navLink"><a  href="{% url 'pet_index' %}">Your Pets</a></li>
@@ -41,6 +44,7 @@
             <li><a href="{% url 'login' %}">Log In</a></li>
           {% endif %}
         </ul>
+        </div>
       </nav>
       <input type="checkbox" id="hamburger-input" class="burger-shower" />
       <label id="hamburger-menu" for="hamburger-input">

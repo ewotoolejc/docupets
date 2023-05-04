@@ -1,7 +1,6 @@
 @media (min-width: 280px) and (max-width:1000px) {
 body {
     display: flex;
-    /* padding: 3vmin; */
     min-height: 100vh;
     flex-direction: column;
     font-size: 3vmin;
@@ -23,7 +22,6 @@ body {
 }
 
 #main-menu {
-  /* display: block; */
   height: 100px;
   width: 100%;
   background: #2d3142;
@@ -37,9 +35,6 @@ body {
   height: 100%;
   margin: 0px auto;
   padding: 0px;
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
   z-index: 9;
 }
 
@@ -213,10 +208,20 @@ footer.page-footer {
     text-align: right;
 }
 }
+
+
+
+
+
+/* SEPARATION */
+
+
+
+
+
 @media (min-width: 1001px) {
   body {
     display: flex;
-    /* padding: 3vmin; */
     min-height: 100vh;
     flex-direction: column;
     font-size: 3.2vmin;
@@ -229,15 +234,24 @@ header nav {
 }
 
 .navBar {
-  display: inline-block;
-  /* flex-direction: row; */
-  /* justify-content: space-evenly; */
+  display: flex;
+  flex-direction: row;
 }
 
 #hamburger-menu {
   visibility: hidden;
 } 
 
+#divleft {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#divright {
+  display: flex;
+  margin-left: auto !important;
+}
 #hamburger-menu #sidebar-menu {
   visibility: hidden;
 }
@@ -247,10 +261,6 @@ header nav {
   justify-content: flex-start;
 }
 
-/* #mainLogoDiv {
-  align-self: flex-start;
-} */
-
 #MainLogo {
     font-family: 'Darumadrop One', cursive;
     font-size: 6vmin;
@@ -258,7 +268,7 @@ header nav {
 
 #username {
   margin-left: 25vmin;
-  margin-top: 0vmin;
+  margin-top: -2vmin;
 }
 
 #right {
