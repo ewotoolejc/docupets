@@ -1,6 +1,6 @@
 # DocuPets
 
-DocuPets is a MyChart inspired app. It was developed thinking about the need to have all the informations about our pets in one place and accessible at any time they want. With DocuPets, you can easily add your favorite Veterinary Doctor, keep track of your pet’s vaccines and grooming. 
+DocuPets is a MyChart inspired app. It was developed thinking about the need to have all the information about our pets in one place and accessible at any time they want. With DocuPets, you can easily add your favorite Veterinary Doctor, keep track of your pet’s vaccines and grooming. 
 
 DocuPets was developed by:
 
@@ -60,4 +60,4 @@ DocuPets was developed by:
 * Edit Grooming details on pet detail page.
 
 
-#### You can see the Trello planing here: [DocuPets](https://trello.com/b/tKhjlXPU/docupets-board)
+#### You can see the Trello planning here: [DocuPets](https://trello.com/b/tKhjlXPU/docupets-board)
