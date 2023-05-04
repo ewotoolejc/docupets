@@ -261,6 +261,23 @@ header nav {
   justify-content: flex-start;
 }
 
+#hamburger-menu {
+  visibility: hidden;
+} 
+
+#hamburger-menu #sidebar-menu {
+  visibility: hidden;
+}
+
+#left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* #mainLogoDiv {
+  align-self: flex-start;
+} */
+
 #MainLogo {
     font-family: 'Darumadrop One', cursive;
     font-size: 6vmin;
