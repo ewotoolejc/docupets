@@ -4,19 +4,161 @@ body {
     /* padding: 3vmin; */
     min-height: 100vh;
     flex-direction: column;
-    font-size: 3.2vmin;
+    font-size: 3vmin;
     font-family: 'Ysabeau', sans-serif;
-    background-color: pink;
+    /* background-color: pink; */
+}
+
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s, height .35s;
+  overflow: hidden;
+  background: black;
+  z-index: -1;
+}
+
+#main-menu {
+  /* display: block; */
+  height: 100px;
+  width: 100%;
+  background: #2d3142;
+  margin: 0px;  
+  z-index: 9;
+}
+
+#main-menu ul {
+  max-width: 800px;
+  width: 100%;
+  height: 100%;
+  margin: 0px auto;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9;
+}
+
+#main-menu li {
+  list-style-type: none;
+  font-size: 2rem;
+}
+
+#main-menu a {
+  color:white;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.titleLogo {
+  /* font-size: 10em; */
+  font-family: 'Darumadrop One', cursive;
+}
+
+.mainLogoDiv {
+  display: flex;
+  align-items: center;
+}
+
+#main-menu a:hover {
+  text-decoration: underline;
+}
+
+.navLink {
+  margin-left: 2em;
+}
+
+#hamburger-input{
+  display: none;
+}
+
+#hamburger-menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  display: none;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Cabin', Sans-serif;
+  background: linear-gradient(
+    to bottom, 
+    #2d3142, #2d3142 20%, 
+    white 20%, white 40%, 
+    #2d3142 40%, #2d3142 60%, 
+    white 60%, white 80%, 
+    #2d3142 80%, #2d3142 100%
+  );
+}
+
+#hamburger-menu #sidebar-menu {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 200px;
+  height: 100%;
+  background-color: #2d3142;
+  transition: 0.3s;
+  padding: 0px 10px;
+  box-sizing: border-box;
+}
+
+#hamburger-menu h3 {
+  color: white;
+  font-size: 2.2rem;
+}
+
+#hamburger-menu ul {
+  padding-left: 0px;
+}
+
+#hamburger-menu li {
+  list-style-type: none;
+  line-height: 3rem;
+}
+
+#hamburger-menu a {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+#hamburger-menu a:hover {
+  text-decoration: underline;
+}
+
+#hamburger-input:checked + #hamburger-menu #sidebar-menu {
+  visibility: visible;
+  left: 0;
+}
+#hamburger-input:checked ~ .overlay{
+  visibility: visible;
+  opacity: 0.4;
+}
+
+
+@media screen and (max-width: 750px) {
+#main-menu {
+  display: none;
+  
+}
+#hamburger-menu {
+  display: inline;
+}
 }
 
 .nav-wrapper {
-background-color: #2D3142;
+  background-color: #2D3142;
 }
 
-#MainLogo {
-    font-family: 'Darumadrop One', cursive;
-    font-size: 6vmin;
-}
 
 #username {
   margin-left: 21vmin;
@@ -34,6 +176,7 @@ h1, h2, h3, h4, h5 {
 
 #homemain {
   height: 50vh;
+  background-color: white;
 }
 
 #delete-pet-main, #delete-vet-main, #del-groom-main, #loginmain, #signupmain {
@@ -88,6 +231,7 @@ footer.page-footer {
     text-align: right;
 }
 }
+
 @media (min-width: 1001px) {
   body {
     display: flex;
@@ -108,8 +252,8 @@ background-color: #2D3142;
 }
 
 #username {
-  margin-left: 21vmin;
-  margin-top: -2.5vmin;
+  margin-left: 25vmin;
+  margin-top: 0vmin;
 }
 
 .right a {
@@ -118,7 +262,7 @@ background-color: #2D3142;
 
 h1, h2, h3, h4, h5 {
   font-family: 'Righteous', cursive;
-  color: #4f5D75;
+  color:#ef8354;
 }
 
 #homemain {
@@ -176,4 +320,12 @@ footer.page-footer {
     padding-top: 0;
     text-align: right;
 }
+}
+
+.navBar {
+  display: flex;
+}
+
+#petindexh1, h1, h2, h3, h4 {
+  color: #4f5D75;
 }
