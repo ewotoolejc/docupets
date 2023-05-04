@@ -6,7 +6,7 @@ body {
     flex-direction: column;
     font-size: 3vmin;
     font-family: 'Ysabeau', sans-serif;
-    /* background-color: pink; */
+    /* background-color: red; */
 }
 
 .overlay{
@@ -38,39 +38,10 @@ body {
   height: 100%;
   margin: 0px auto;
   padding: 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
   z-index: 9;
-}
-
-#main-menu li {
-  list-style-type: none;
-  font-size: 2rem;
-}
-
-#main-menu a {
-  color:white;
-  font-size: 2rem;
-  text-decoration: none;
-}
-
-.titleLogo {
-  /* font-size: 10em; */
-  font-family: 'Darumadrop One', cursive;
-}
-
-.mainLogoDiv {
-  display: flex;
-  align-items: center;
-}
-
-#main-menu a:hover {
-  text-decoration: underline;
-}
-
-.navLink {
-  margin-left: 2em;
 }
 
 #hamburger-input{
@@ -87,7 +58,7 @@ body {
   border: none;
   padding: 0px;
   margin: 0px;
-  font-family: 'Cabin', Sans-serif;
+  font-family: 'Ysabeau', sans-serif;
   background: linear-gradient(
     to bottom, 
     #2d3142, #2d3142 20%, 
@@ -109,11 +80,6 @@ body {
   transition: 0.3s;
   padding: 0px 10px;
   box-sizing: border-box;
-}
-
-#hamburger-menu h3 {
-  color: white;
-  font-size: 2.2rem;
 }
 
 #hamburger-menu ul {
@@ -144,16 +110,26 @@ body {
   opacity: 0.4;
 }
 
+#hamburger-menu #MainLogo {
+  font-size: 2.5rem;
+  font-family: 'Darumadrop One', cursive;
+}
 
-@media screen and (max-width: 750px) {
+#hamburger-menu #MainLogo:hover {
+  text-decoration: none;
+}
+
+
+/* @media screen and (max-width: 750px) { */
 #main-menu {
   display: none;
   
 }
+
 #hamburger-menu {
   display: inline;
 }
-}
+
 
 .nav-wrapper {
   background-color: #2D3142;
@@ -161,13 +137,12 @@ body {
 
 
 #username {
-  margin-left: 21vmin;
-  margin-top: -2.5vmin;
+  font-size: 1rem;
 }
 
-.right a {
+/* .right a {
   font-size: 3vmin;
-}
+} */
 
 h1, h2, h3, h4, h5 {
   font-family: 'Righteous', cursive;
@@ -230,7 +205,7 @@ footer.page-footer {
     padding-top: 0;
     text-align: right;
 }
-}
+/* } */
 
 @media (min-width: 1001px) {
   body {
@@ -240,6 +215,7 @@ footer.page-footer {
     flex-direction: column;
     font-size: 3.2vmin;
     font-family: 'Ysabeau', sans-serif;
+    background-color: pink;
 }
 
 .nav-wrapper {
